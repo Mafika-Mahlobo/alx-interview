@@ -3,7 +3,9 @@
 Implementing pascals triangle.
 """
 
+
 def pascal_triangle(n):
+
     """
     function to implement a pascals triangle.
 
