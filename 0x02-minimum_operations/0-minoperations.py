@@ -4,7 +4,9 @@
 Solving Minimum operation problem
 """
 
+
 def minOperations(n):
+
     """
     Check the minimum number of times to get Hxn with copy-all and paste
 
@@ -14,12 +16,10 @@ def minOperations(n):
     Returns:
         Int: number of copy/paste operation needed
     """
-    
+
     number_of_operations = 0
     current_h = 1
     clipboard = 1
-
-
     while current_h < n:
 
         if n % current_h == 0:
