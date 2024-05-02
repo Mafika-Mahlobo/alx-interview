@@ -10,6 +10,7 @@ pattern = pattern = (
     r"(\d{1,3}(?:\.\d{1,3}){3}) - \[(.*?)\] "
     r"\"GET /projects/260 HTTP/1\.1\" (\d{3}) (\d+)"
     )
+
 count = 0
 total_file_size = 0
 status_code_count = {}
@@ -23,12 +24,15 @@ try:
         match = re.match(pattern, line)
 
         if (match):
+
             file_size = int(match.group(4))
             status_code = int(match.group(3))
 
             total_file_size += file_size
-            if status_code in status_code_count:
-                status_code_count[status_code] = status_code_count.get(status_code, 0) + 1
+
+            if status_code not in status_code_count:
+                status_code_count[status_code] = 0
+            status_code_count[status_code] += 1
 
             count += 1
 
