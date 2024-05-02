@@ -53,4 +53,3 @@ except KeyboardInterrupt:
         code_count = status_code_count[code]
         if code_count > 0:
             print(f"{code}: {code_count}")
-    sys.exit(0)
