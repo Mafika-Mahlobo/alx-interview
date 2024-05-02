@@ -12,15 +12,7 @@ pattern = pattern = (
     )
 count = 0
 total_file_size = 0
-status_code_count = {200: 0,
-                     301: 0,
-                     400: 0,
-                     401: 0,
-                     403: 0,
-                     404: 0,
-                     405: 0,
-                     500: 0
-                     }
+status_code_count = {}
 file_size = 0
 status_code = 0
 code_count = 0
@@ -36,7 +28,7 @@ try:
 
             total_file_size += file_size
             if status_code in status_code_count:
-                status_code_count[status_code] += 1
+                status_code_count[status_code] = status_code_count.get(status_code, 0) + 1
 
             count += 1
 
