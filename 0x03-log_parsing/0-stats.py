@@ -6,10 +6,21 @@ Log parsing function
 import sys
 import re
 
-pattern = r"(\d{1,3}(?:\.\d{1,3}){3}) - \[(.*?)\] \"GET /projects/260 HTTP/1\.1\" (\d{3}) (\d+)"
+pattern = pattern = (
+    r"(\d{1,3}(?:\.\d{1,3}){3}) - \[(.*?)\] "
+    r"\"GET /projects/260 HTTP/1\.1\" (\d{3}) (\d+)"
+    )
 count = 0
 total_file_size = 0
-status_code_count = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
+status_code_count = {200: 0,
+                     301: 0,
+                     400: 0,
+                     401: 0,
+                     403: 0,
+                     404: 0,
+                     405: 0,
+                     500: 0
+                     }
 file_size = 0
 status_code = 0
 code_count = 0
@@ -18,7 +29,7 @@ try:
     for line in sys.stdin:
 
         match = re.match(pattern, line)
-    
+
         if (match):
             file_size = int(match.group(4))
             status_code = int(match.group(3))
