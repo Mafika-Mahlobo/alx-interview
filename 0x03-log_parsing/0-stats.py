@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Log parsing function
+Log parsing Script
 """
 
 import sys
@@ -46,7 +46,6 @@ try:
                     code_count = status_code_count[code]
                     if code_count > 0:
                         print(f"{code}: {code_count}")
-                print()
 
 except KeyboardInterrupt:
     print(f"File size: {total_file_size}")
