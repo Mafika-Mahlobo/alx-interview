@@ -3,7 +3,10 @@
 """
 N Queens algorithm
 """
+
+
 import sys
+
 
 def is_safe(board, row, col):
     """
@@ -43,12 +46,12 @@ def nqueens(N):
 
         if row == N:
             formatted_solution = [[r, c] for r, c in enumerate(board)]
-        solutions.append(formatted_solution)
-        continue
+            solutions.append(formatted_solution)
+            continue
 
         for col in range(N):
             if is_safe(board, row, col):
-        stack.append((row + 1, board + [col]))
+                stack.append((row + 1, board + [col]))
 
     return solutions
 
