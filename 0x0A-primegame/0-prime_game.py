@@ -14,7 +14,6 @@ def isWinner(x, nums):
     if x <= 0 or not nums:
         return None
 
-    # Precompute primes up to the maximum number in nums
     max_num = max(nums)
     primes = [True] * (max_num + 1)
     primes[0] = primes[1] = False
@@ -24,13 +23,13 @@ def isWinner(x, nums):
             for j in range(i * i, max_num + 1, i):
                 primes[j] = False
 
-    # Calculate the winner for each round
+    
     maria_wins = 0
     ben_wins = 0
 
     for n in nums:
         prime_count = sum(primes[2:n + 1])
-        # Maria wins if the number of primes is odd, otherwise Ben wins
+    
         if prime_count % 2 == 1:
             maria_wins += 1
         else:
